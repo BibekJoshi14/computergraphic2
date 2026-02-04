@@ -1,0 +1,38 @@
+#include <graphics.h>
+#include <conio.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int gd = DETECT, gm;
+
+    // Original rectangle coordinates
+    int x1 = 100, y1 = 100, x2 = 200, y2 = 150;
+
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    // Original Object
+    setcolor(WHITE);
+    rectangle(x1, y1, x2, y2);
+    outtextxy(100, 80, "Original Object");
+    getch();
+    cleardevice();
+
+    // Reflection about X-axis
+    setcolor(GREEN);
+    rectangle(x1, getmaxy() - y1, x2, getmaxy() - y2);
+    outtextxy(100, 80, "Reflection about X-axis");
+    getch();
+    cleardevice();
+
+    // Reflection about Y-axis
+    setcolor(RED);
+    rectangle(getmaxx() - x1, y1, getmaxx() - x2, y2);
+    outtextxy(100, 80, "Reflection about Y-axis");
+    getch();
+
+    closegraph();
+    return 0;
+}
